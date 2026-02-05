@@ -1,0 +1,17 @@
+{
+  "contato": {
+    "nome": "Arthur",
+    "email": "arthur@email.com",
+    "telefone": "(11) 98765-4321",
+    "assunto": [
+      "orcamento",
+      "duvidas",
+      "reclamacao",
+      "elogio",
+      "outro"
+    ],
+    "mensagem": "Gostaria de solicitar um orçamento para uma viagem de 7 dias para a Europa, incluindo passagens aéreas, hospedagem e passeios turísticos. Por favor, me envie as opções disponíveis e os preços. Obrigado!"
+  }
+}
+
+

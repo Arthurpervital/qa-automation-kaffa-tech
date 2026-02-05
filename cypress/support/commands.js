@@ -7,12 +7,12 @@ Cypress.Commands.add('submitBugdet', function () {
 
     const contatoForm = this.contactFormData.contato
 
-        cy.get('#nome').type(contatoForm.nome)
-        cy.get('#email').type(contatoForm.email)
-        cy.get('#telefone').type(contatoForm.telefone)
-        cy.get('#assunto').select(contatoForm.assunto[0])
-        cy.get('#mensagem').type(contatoForm.mensagem)
-        cy.contains('button', 'Enviar Mensagem').click()
+        cy.get('#nome').type(contatoForm.nome).should('be.visible').and('not.null')
+        cy.get('#email').type(contatoForm.email).should('be.visible').and('not.null')
+        cy.get('#telefone').type(contatoForm.telefone).should('be.visible').and('not.null')
+        cy.get('#assunto').select(contatoForm.assunto[0]).should('be.visible')
+        cy.get('#mensagem').type(contatoForm.mensagem).should('have.value', contatoForm.mensagem).and('not.null')
+        cy.contains('button', 'Enviar Mensagem').click().should('be.visible')
 
         //valida o alert padrão do navegador
         cy.on('window:alert', (msg) => {
@@ -22,26 +22,6 @@ Cypress.Commands.add('submitBugdet', function () {
 
 })
 
-Cypress.Commands.add('TestsubmitBugdet', function () {
- //utilizando function sem aerow function para ter acesso ao this e pegar os dados do fixture
-
-    const contatoForm = this.contactFormData.contato
-
-
-        cy.get('#nome').type(contatoForm.nome)
-        cy.get('#email').type(contatoForm.email)
-        cy.get('#telefone').type(contatoForm.telefone)
-        cy.get('#assunto').select(contatoForm.assunto[0])
-        cy.get('#mensagem').type(contatoForm.mensagem)
-        cy.contains('button', 'Enviar Mensagem').click()
-
-        //valida o alert padrão do navegador
-        cy.on('window:alert', (msg) => {
-            expect(msg).to.equal('Mensagem enviada com sucesso!')
-            return true; //clica no ok do alert
-        })
-
-})
 
 Cypress.Commands.add('successfullyRequestQuote', () =>{
 
@@ -54,11 +34,11 @@ Cypress.Commands.add('successfullyRequestQuote', () =>{
       dataNascimento: '1990-06-15'
     }
 
-    cy.get('#valorPassagem').type(budgetData.valorPassagem).not.null
-    cy.get('#numeroPessoas').type(budgetData.numeroPessoas).not.null
-    cy.get('#diasHospedagem').type(budgetData.diasHospedagem).not.null
-    cy.get('#dataNascimento').type(budgetData.dataNascimento).not.null
-    cy.contains('button','Calcular Orçamento').click()
+    cy.get('#valorPassagem').type(budgetData.valorPassagem).should('be.visible').and('not.null')
+    cy.get('#numeroPessoas').type(budgetData.numeroPessoas).should('be.visible').and('not.null')
+    cy.get('#diasHospedagem').type(budgetData.diasHospedagem).should('be.visible').and('not.null')
+    cy.get('#dataNascimento').type(budgetData.dataNascimento).should('be.visible').and('not.null')
+    cy.contains('button','Calcular Orçamento').click().should('be.visible')
     cy.get('#resultadoOrcamento').should('contain.text','Orçamento total: R$ 8000.00')
 
 })
@@ -72,11 +52,11 @@ Cypress.Commands.add('failedRequestQuote', () =>{
       dataNascimento: '1000-06-15'
     }
 
-    cy.get('#valorPassagem').type(budgetData.valorPassagem)
-    cy.get('#numeroPessoas').type(budgetData.numeroPessoas)
-    cy.get('#diasHospedagem').type(budgetData.diasHospedagem)
-    cy.get('#dataNascimento').type(budgetData.dataNascimento)
+    cy.get('#valorPassagem').type(budgetData.valorPassagem).should('be.visible').and('not.null')
+    cy.get('#numeroPessoas').type(budgetData.numeroPessoas).should('be.visible').and('not.null')
+    cy.get('#diasHospedagem').type(budgetData.diasHospedagem).should('be.visible').and('not.null')
+    cy.get('#dataNascimento').type(budgetData.dataNascimento).should('be.visible').and('not.null')
     cy.contains('button','Calcular Orçamento').click()
-    cy.get('#resultadoOrcamento').should('contain.text','Orçamento total: R$ NaN')
+    cy.get('#resultadoOrcamento').should('contain.text','Orçamento total: R$ NaN').should('be.visible')
 
 })

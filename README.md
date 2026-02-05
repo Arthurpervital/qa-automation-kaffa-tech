@@ -42,10 +42,3 @@
 2. Após, abra o cypress utilizando o comando
  npx cypress open
  Essa ação irá abrir o **cypress e criar a pasta do cypress no projeto**
-
-# Dependencias e extensões
-
- # Faker-js
- Rodar no terminal o comando:
-  npm install faker-js
-  

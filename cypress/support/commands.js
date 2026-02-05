@@ -26,7 +26,7 @@ Cypress.Commands.add('TestsubmitBugdet', function () {
  //utilizando function sem aerow function para ter acesso ao this e pegar os dados do fixture
 
     const contatoForm = this.contactFormData.contato
-    const assuntoForm = this.assuntoFormData.assunto
+
 
         cy.get('#nome').type(contatoForm.nome)
         cy.get('#email').type(contatoForm.email)

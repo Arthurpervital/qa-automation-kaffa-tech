@@ -1,7 +1,5 @@
 # Bem vindo ao projeto Kaffa Tech Travel!
 
-# Instruções para rodar o projeto
-
 # Requisitos mínimos para utilização do Cypress:
 
 - Principais Requisitos e Pré-requisitos:
@@ -14,7 +12,7 @@
 - Editor de Código: Visual Studio Code (VS Code) é o mais recomendado.
 - Hardware Mínimo: Processador x64 ou arm64. 
 
-# Instação do Cypress
+# Instalação do Cypress
 
 1. Abra um terminal e rode o seguinte comando:
  npm install cypress
